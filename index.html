@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Tajmahal Belfort - Indian & Pakistani Cuisine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #d4af37 0%, #c19a3a 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(212, 175, 55, 0.7), rgba(212, 175, 55, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23c19a3a" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 2rem;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            background: #d4af37;
+            color: #333;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #FFD700;
+            transform: scale(1.05);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #d4af37;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-item {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .menu-item h3 {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-form {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            background: #d4af37;
+            color: #333;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .form-group button:hover {
+            background: #FFD700;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🍛 Tajmahal Belfort</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Restaurant Tajmahal Belfort</h1>
+            <p>Authentic Indian & Pakistani Cuisine</p>
+            <a href="#contact" class="cta-button">Reserve a Table</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Welcome to Tajmahal Belfort</h3>
+                    <p>
+                        Experience the authentic flavors of India and Pakistan at Restaurant Tajmahal Belfort. 
+                        Our culinary journey brings you traditional recipes passed down through generations, 
+                        prepared with the finest ingredients and spices.
+                    </p>
+                    <p>
+                        Whether you're craving aromatic curries, tender tandoori specialties, or fragrant biryani, 
+                        our experienced chefs craft each dish with passion and expertise. We invite you to savor 
+                        the rich cultural heritage of South Asian cuisine in an elegant and welcoming atmosphere.
+                    </p>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To bring the authentic taste of India and Pakistan to Belfort, while providing exceptional 
+                        service and creating unforgettable dining experiences for our guests.
+                    </p>
+                </div>
+                <div>
+                    <p style="font-size: 4rem; text-align: center;">🌟</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Tandoori Specialties</h3>
+                    <p>
+                        Succulent meats and vegetables marinated in yogurt and spices, 
+                        then cooked in our traditional clay oven. Tender, flavorful, and aromatic.
+                    </p>
+                </div>
+                <div class="menu-item">
+                    <h3>Curries & Gravies</h3>
+                    <p>
+                        Rich and creamy curries prepared with fresh herbs, tomatoes, and coconut milk. 
+                        From mild to spicy, there's something for every palate.
+                    </p>
+                </div>
+                <div class="menu-item">
+                    <h3>Biryani</h3>
+                    <p>
+                        Fragrant basmati rice cooked with tender meat or vegetables, layered with aromatic spices. 
+                        A complete meal in one dish.
+                    </p>
+                </div>
+                <div class="menu-item">
+                    <h3>Bread & Rice</h3>
+                    <p>
+                        Freshly baked naan, paratha, and roti. Perfectly cooked basmati rice and aromatic pilafs 
+                        to complement your meal.
+                    </p>
+                </div>
+                <div class="menu-item">
+                    <h3>Appetizers</h3>
+                    <p>
+                        Samosas, pakoras, kebabs, and more. Start your meal with our delicious selection 
+                        of traditional appetizers.
+                    </p>
+                </div>
+                <div class="menu-item">
+                    <h3>Desserts</h3>
+                    <p>
+                        Sweet treats including gulab jamun, kheer, and traditional Indian sweets. 
+                        The perfect ending to your dining experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x300/d4af37/ffffff?text=Tandoori+Dishes" alt="Tandoori Specialties">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x300/c19a3a/ffffff?text=Curries" alt="Curries">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x300/d4af37/ffffff?text=Biryani" alt="Biryani">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x300/c19a3a/ffffff?text=Breads" alt="Breads">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x300/d4af37/ffffff?text=Restaurant+Interior" alt="Restaurant">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x300/c19a3a/ffffff?text=Appetizers" alt="Appetizers">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>
+                        📍 <strong>Address:</strong><br>
+                        Belfort, France
+                    </p>
+                    <p>
+                        📞 <strong>Phone:</strong><br>
+                        Call us for reservations
+                    </p>
+                    <p>
+                        ⏰ <strong>Hours:</strong><br>
+                        Monday - Sunday<br>
+                        11:30 AM - 11:00 PM
+                    </p>
+                    <p>
+                        📧 <strong>Email:</strong><br>
+                        info@tajmahalbelfort.fr
+                    </p>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Restaurant Tajmahal Belfort. All rights reserved.</p>
+        <p>Authentic Indian & Pakistani Cuisine | Belfort, France</p>
+    </footer>
+</body>
+</html>
