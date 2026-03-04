@@ -3,65 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Tajmahal Belfort</title>
+    <title>Taj Mahal Restaurant</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #f5f5f5;
+            color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #9b5e4b;
             color: white;
             padding: 20px;
             text-align: center;
         }
-        nav {
-            margin: 20px 0;
+        nav ul {
+            list-style-type: none;
         }
-        nav a {
+        nav ul li {
+            display: inline;
             margin: 0 15px;
-            text-decoration: none;
-            color: #4CAF50;
-            font-weight: bold;
         }
-        .content {
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .menu, .gallery {
+            margin: 20px 0;
             padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+        .contact-form {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
         }
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #4CAF50;
+            padding: 10px;
+            background-color: #9b5e4b;
             color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Restaurant Tajmahal Belfort</h1>
+        <h1>Welcome to Taj Mahal Restaurant</h1>
         <nav>
-            <a href="#menu">Menu</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <div class="content">
-        <h2 id="menu">Menu</h2>
-        <p>Explore our delicious offerings:</p>
-        <ul>
-            <li>Indian Curry</li>
-            <li>Butter Chicken</li>
-            <li>Vegetable Biryani</li>
-            <li>Garlic Naan</li>
-        </ul>
-        <h2 id="about">About Us</h2>
-        <p>Restaurant Tajmahal Belfort brings you an authentic taste of Indian cuisine with a warm and welcoming atmosphere.</p>
-        <h2 id="contact">Contact</h2>
-        <p>Email us at: info@tajmahalbelfort.com</p>
+    <div class="container">
+        <section id="menu" class="menu">
+            <h2>Our Menu</h2>
+            <p>Delicious dishes made with love and the finest ingredients.</p>
+            <!-- Menu items can be added here -->
+        </section>
+        <section id="gallery" class="gallery">
+            <h2>Gallery</h2>
+            <p>Check out our delicious food!</p>
+            <!-- Image gallery can be added here -->
+        </section>
+        <section id="contact" class="contact-form">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
     </div>
     <footer>
-        <p>&copy; 2026 Restaurant Tajmahal Belfort. All rights reserved.</p>
+        <p>&copy; 2026 Taj Mahal Restaurant</p>
     </footer>
 </body>
 </html>
